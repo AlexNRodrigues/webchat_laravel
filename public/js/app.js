@@ -22249,13 +22249,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _Jetstream_Welcome_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Jetstream/Welcome.vue */ "./resources/js/Jetstream/Welcome.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store */ "./resources/js/store.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'watchEffect'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -22305,15 +22304,14 @@ var __default__ = {
 
               case 3:
                 user = this.users.filter(function (user) {
-                  if (user.id === data.message.from) {
+                  if (user.id === userId) {
                     return user;
                   }
                 });
 
                 if (user) {
-                  //   user[0].notification = true;
-                  Object(function webpackMissingModule() { var e = new Error("Cannot find module 'watchEffect'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(function () {
-                    user.notification = true;
+                  (0,vue__WEBPACK_IMPORTED_MODULE_5__.watchEffect)(function () {
+                    user.notification = false;
                   });
                 }
 
@@ -22408,14 +22406,13 @@ var __default__ = {
 
               case 6:
                 user = _this3.users.filter(function (user) {
-                  if (user.id === data.message.from) {
+                  if (user.id === e.message.from) {
                     return user;
                   }
                 });
 
                 if (user) {
-                  //   user[0].notification = true;
-                  Object(function webpackMissingModule() { var e = new Error("Cannot find module 'watchEffect'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(function () {
+                  (0,vue__WEBPACK_IMPORTED_MODULE_5__.watchEffect)(function () {
                     user.notification = true;
                   });
                 }
@@ -22441,7 +22438,8 @@ var __default__ = {
 
 
 
-
+ // import watchEffect from "watchEffect";
+// import { WatchEvents } from "laravel-mix/types/browsersync";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/Object.assign(__default__, {
   setup: function setup(__props, _ref2) {
@@ -22449,11 +22447,10 @@ var __default__ = {
     expose();
     var __returned__ = {
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-      Welcome: _Jetstream_Welcome_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
       axios: (axios__WEBPACK_IMPORTED_MODULE_4___default()),
       moment: (moment__WEBPACK_IMPORTED_MODULE_2___default()),
-      store: _store__WEBPACK_IMPORTED_MODULE_3__["default"],
-      watchEffect: Object(function webpackMissingModule() { var e = new Error("Cannot find module 'watchEffect'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+      watchEffect: vue__WEBPACK_IMPORTED_MODULE_5__.watchEffect,
+      store: _store__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -26988,7 +26985,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "myappkey",
   cluster: "mt1",
-  forceTLS: true,
+  forceTLS: false,
   wsHost: window.location.hostname,
   wsPort: 6001
 });
@@ -27008,15 +27005,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-/* harmony import */ var vuex_persistedstate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex-persistedstate */ "./node_modules/vuex-persistedstate/dist/vuex-persistedstate.es.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex_persistedstate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex-persistedstate */ "./node_modules/vuex-persistedstate/dist/vuex-persistedstate.es.js");
 
 
 
- // Vue.useAttrs(Vuex);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_3__["default"].Store({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
     user: {}
   },
@@ -27034,7 +27028,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  plugins: [(0,vuex_persistedstate__WEBPACK_IMPORTED_MODULE_2__["default"])()]
+  plugins: [(0,vuex_persistedstate__WEBPACK_IMPORTED_MODULE_1__["default"])()]
 }));
 
 /***/ }),

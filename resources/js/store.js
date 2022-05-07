@@ -1,9 +1,6 @@
 import axios from "axios"
-import Vue from "vue"
 import Vuex from "vuex"
 import cretePersistedState from 'vuex-persistedstate'
-
-// Vue.useAttrs(Vuex);
 
 export default new Vuex.Store({
     state: {
